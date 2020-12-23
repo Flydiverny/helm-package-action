@@ -26,7 +26,7 @@ RUN wget -O /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-rel
 RUN wget -q http://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
   chmod +x /usr/local/bin/helm
 
-RUN helm init --client-only
+RUN helm init --client-only --stable-repo-url https://charts.helm.sh/stable
 
 COPY ./helm-package.sh /usr/bin/helm-package
 
